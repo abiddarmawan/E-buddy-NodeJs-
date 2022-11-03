@@ -1,0 +1,58 @@
+body ,html {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    background-color:white;
+    height: 100%;
+    font-weight: 700;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.login-form {
+    height: 500px;
+    width: 430px;
+    padding: 0 35px;
+    background-color:#e2e2e2;
+    border: none;
+    border-radius: 35px;
+}
+
+input[type="email"],
+input[type="password"] {
+    border-radius: 20px;
+    
+}
+
+
+
+.btn-login {
+    background-color: white;
+    height: 35px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+
+
+.link {
+    color:black;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+.register{
+    text-align: center;
+}
+
+
