@@ -1,0 +1,123 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.login{
+    height: 100vh;
+    background: #d9d9d9;
+}
+
+.header h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 52px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.header p{  
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #000000;
+    margin-bottom: 13px;
+}
+
+.login-form label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+    color: #000000;
+    margin-top: 8px;
+}
+
+.login-form input{
+    background: #ffff;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.login-form a{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #000000;
+
+}
+
+.login-form .sign-in{
+    width: 100%;
+    height: 60px;
+    background-color: #ffff;
+    border-radius: 10px;
+    color: black;
+    border: 0px;
+    margin-top: 19px;
+    margin-bottom: 10px;
+}
+
+.login-form span{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    margin-top: 10px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+.login-form span a{
+    font-weight: 600;
+}
+
+.login-right img{
+    height: 100%;
+    width: 100%;
+}
+
+/*=============== Register ===================*/
+
+.registration-form input{
+    background: #ffff;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.registration-form button{
+    border-radius: 10px;
+    color: black;
+}
+
+.registration-form .signup{
+    width: 100%;
+    height: 60px;
+    background-color: #ffff;
+    border-radius: 10px;
+    color: black;
+    border: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.registration-form label{
+    font-style: bold;
+    font-weight: 500;
+    font-size: 15px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.registration-form a{
+    color: black;
+    font-weight: 400;
+}
