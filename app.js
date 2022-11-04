@@ -1,31 +1,37 @@
+
 const express = require('express')
 const app = express()
 const {users}=require("./models")
-
 const port = 3000
 
 //gunakan ejs
-
 app.set('view engine','ejs')
 
 app.use(express.static("public"));
+app.use(express.urlencoded({extended:false}))
 
 app.get("/", async(req, res) => {
     
-    const user = await users.findOne({where:{username:"abid"}});
-
-    if (user.password === "1234"){
-        console.log(user);
-    }else{
-        console.log(false)
-    }
-    console.log(user.password)
-    res.render('login')
+    res.render('login');
 
 });
 
+app.get("/home", async(req, res) => {
+    
+    res.send("Halo");
+
+});
+
+app.post("/login",(req,res) => {
+    console.log(req.body);
+    console.log(req.email);
+    res.redirect("/home");
+
+
+});
 
 app.listen(port, () => {
-    console.log(`PORT JALAN ${port}`)
+    console.log(`PORT JALAN ${port}`);
 })
 
+ 
