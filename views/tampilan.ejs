@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">BERAT BADAN</h5>
+   
+    <p class="card-text"><%= data.fullname %></p>
+    <% if (!data.beratdetails) {%>
+      <p>Belum menambahkan Berat badan</p> 
+    <%}else{%>
+        <p class="card-text"><%= data.beratdetails.berat %></p>
+     <% } %>
+    <form method="POST" action="/berat?_method=DELETE" >
+      <input type="hidden" name="id" value="<%= id %>" />
+      <button type="submit" class="btn-danger badge">Delete</button>
+    </form>
+  </div>
+</div>

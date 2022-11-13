@@ -38,8 +38,12 @@ Object.keys(db).forEach((modelName) => {
     }
 });
 
+
 sequelize.sync();
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
 module.exports = db;
+
+db.users.hasOne(db.beratusers,{foreignKey : 'id_users',as:'beratdetails'});
+// db.beratusers.belongsTo(db.users);
+// db.users.belongsTo(db.beratusers);
