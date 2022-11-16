@@ -1,16 +1,28 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">BERAT BADAN</h5>
-   
-    <p class="card-text"><%= data.fullname %></p>
-    <% if (!data.beratdetails) {%>
-      <p>Belum menambahkan Berat badan</p> 
-    <%}else{%>
-        <p class="card-text"><%= data.beratdetails.berat %></p>
-     <% } %>
-    <form method="POST" action="/berat?_method=DELETE" >
-      <input type="hidden" name="id" value="<%= id %>" />
-      <button type="submit" class="btn-danger badge">Delete</button>
-    </form>
+
+<section class="card container-fluid">
+  <div class="container-ibm">
+      <div class="row justify-content-center align-items-center">
+          <div class="col-3">
+              <div class="card " style="width: 18rem;">
+                  <div class="card-body">
+                      <h5 class="card-title">Berat Badan</h5>
+                 
+                      <h6 class="card-subtitle mb-2 text-muted"><%= nama %></h6>
+                      <p class="card-text">Index Massa Tubuh : </p>
+                      <% if (!berat) {%>
+                          <p>Belum menambahkan Berat badan</p> 
+                      <%}else{%>
+                            <p class="card-text"><%= berat %></p>
+                      <% } %>
+                      <a href="/masatubuh/edit/<%=id%>" class="btn btn-info badge">edit</a>
+                      <form method="POST" action="/berat?_method=DELETE" class="d-inline" >
+                         <input type="hidden" name="id" value="<%= id %>" />
+                          <button type="submit" class="btn-danger badge">Delete</button>
+                      </form>
+                  </div>
+                </div>
+              
+          </div>
+      </div>
+    </div>
   </div>
-</div>

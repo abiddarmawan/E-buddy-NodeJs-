@@ -121,3 +121,115 @@
     color: black;
     font-weight: 400;
 }
+
+.container-calculator a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container-left label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+    color: #000000;
+    margin-top: 25px;
+}
+
+.container-left button{
+    width: 210px;
+    height: 52px;
+    left: 251px;
+    top: 568px;
+
+    background: #D9D9D9;
+    border-radius: 20px;
+    margin-top: 39px;
+}
+
+.container-left input{
+    border-radius: 1px;
+    border-radius: 10px;
+}
+
+.container-right img{
+    width: auto;
+    height: 250px;
+}
+
+.container-right h2{
+    margin-top: 30px;
+}
+
+.container-right p{
+    margin-top: 10px;
+}
+
+.container-isian h1{
+    margin-top: 60px;
+}
+
+.container-isian img{
+    width: 200px;
+    height: auto;
+}
+
+.container .mulai{
+    width: 210px;
+    height: 52px;
+    left: 251px;
+    top: 568px;
+
+    background: #D9D9D9;
+    border-radius: 20px;
+    border: 2px;
+    margin-bottom: 20px;
+
+}
+
+.container-bawah .h3{
+    margin-top: 30px;
+}
+
+.container-bawah menu{
+    margin-top: 20px;
+}
+
+.container-bawah p{
+    margin-top: 10px;
+} 
+
+.ibm{
+    height: 100vh;
+}
+
+.ibm .container-ibm{
+    padding-top: 100px;
+}
+
+.ibm .container-ibm .isian-ibm label{
+    padding-top: 10px;
+}
+
+.ibm .container-ibm input{
+     border-radius: 20px;
+}
+
+.ibm .container-ibm button{
+    width: 30%;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+
+
+.card{
+    margin-top: 30px;
+}
+
+.card .container-card .tombol-card a{
+    margin-left: 10px;
+    color: #000000;
+}
+

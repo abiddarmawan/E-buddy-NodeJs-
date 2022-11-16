@@ -1,0 +1,67 @@
+<!-- 
+    <div class="container-calculator">
+        <nav class="navbar fixed-top navbar-expand-lg bg-light">
+          <div class="container">
+              <a class="navbar-brand" href="#">E-Buddy</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                  <a class="nav-link" href="#">Menu</a>
+                  <a class="nav-link" href="#">Video</a>
+                  <a class="nav-link " href="#">Calculator</a>
+                  <a class="nav-link" href="#">IBM</a>
+                </div>
+              </div>
+              <div class="nav">
+                <div class="justify-content-end">
+                  <a href="#" class="text-decoration-none">Login</a>
+                  <a href="#" class="signup_button text-decoration-none">SignUp</a>
+                </div>
+              </div>
+          </div>
+        </nav>
+    </div> -->
+
+    <section class="ibm container-fluid">
+        <div class="container-ibm">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-5">
+                    <div class="text-center">
+                        <h2>Hallo Selamat datang kembali!</h2>
+                        <p>Ayo itung kembali IBM badan kamu, apa kamu sudah mencapai target kamu?</p>
+                    </div>
+                    <form method="POST" action="/imb?_method=PUT">
+                    <div class="isian-ibm">
+                        <input type="hidden" name="id" value="<%=id %>" />
+                        
+                        <!--Berat Badan -->
+                        <label for="berat">Masukan Berat Badan</label>
+                        <input name = "beratbadan" type="number" min="1" max="1000" class="form-control" id="berat" placeholder="Berat Badan">
+            
+                        <!--tinggi badan -->
+                        <label for="tinggi">Masukan Tinggi Badan</label>
+                        <input name="tinggi" type="number" min="1" max="1000" class="form-control" id="tinggi" placeholder="Tinggi Badan">
+            
+                         
+            
+                        <!--  button Hitung -->
+                        <div class="text-center">
+                            <button class="tambah">Tambah</button>
+                        </div>
+                        <% if (typeof hasil !== 'undefined' ) { %>  
+                          <div class="alert alert-dark" role="alert">
+                              <% let angka = hasil.toFixed(2)%>
+        
+                              <%= angka %>  
+                          </div>
+                          <%}%>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+        </div>
+
