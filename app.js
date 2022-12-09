@@ -4,11 +4,9 @@ const {users}=require("./models");
 const {beratusers}=require("./models");
 const expressLayouts = require('express-ejs-layouts');
 const port = 3000;
-
 const { body, validationResult,check } = require('express-validator'); //body menangkap yang sudah di kirimkan form,validation untuk cek 
 const methodOverride = require('method-override')
 require('dotenv').config() // import dotenv
-
 const  session = require('express-session');
 const { redirect } = require('express/lib/response');
 const { where } = require('sequelize');
@@ -84,10 +82,10 @@ app.get("/register",(req,res) => {
     res.render("register",{
         layout:'layouts/main-layout',
         title : 'calculator',
-     
-    })
+    });
+    
 });
-
+ 
 
 app.post("/register",[
     check('email',"Email tidak valid").isEmail(),
@@ -114,7 +112,6 @@ app.post("/register",[
 app.post("/login",async(req,res) => {
     console.log(req.body)
     const user = await users.findOne({where: {email: req.body.email}})
-  
 
     if (!user){
         res.redirect("/login")
@@ -122,19 +119,17 @@ app.post("/login",async(req,res) => {
         if(user.password !== req.body.password){
             res.redirect("/login")
         }else{
+
             let session = req.session;
             session.user = {email : user.email, id : user.id, name : user.fullname};
-           
-            res.redirect("/home")
-        }
+        
+            res.redirect("/home");
+        };
     }
 });
 
-
-
-
 app.get("/tampilan",cek_login,async(req,res)=> {
-   let id = req.session.user.id;
+    let id = req.session.user.id;
     let data = await users.findOne({
         attributes:['fullname'],
         include:[{
@@ -163,8 +158,6 @@ app.get("/tampilan",cek_login,async(req,res)=> {
             title : 'calculator',
         });
     }
-    
-
 })
 
 app.get("/masatubuh",cek_login,async(req,res)=> {
@@ -212,15 +205,17 @@ app.delete('/berat', async(req,res)=>{
 app.get("/masatubuh/edit/:id",async(req,res)=>{
 
     const user = await beratusers.findOne({where:{id_users : req.params.id}})
-   
-
+    
     res.render('ibm',{
+    
         id : user.id_users,
         layout :'layouts/main-layout',
         title : 'pembaruan',
-    })
+    
+    });
 
-})
+});
+
 app.put('/imb',async(req,res)=> {
     
     let berat = req.body.beratbadan;
@@ -243,6 +238,7 @@ app.put('/imb',async(req,res)=> {
 app.listen(port, () => {
 
     console.log(`PORT JALAN ${port}`);
-})
+
+});
 
  
