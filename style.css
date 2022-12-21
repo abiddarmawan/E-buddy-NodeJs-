@@ -1,0 +1,339 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.login{
+    height: 100vh;
+
+}
+
+.header h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 52px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.header p{  
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #000000;
+    margin-bottom: 13px;
+}
+
+.login-form label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+    color: #000000;
+    margin-top: 8px;
+}
+
+.login-form input{
+    background: #ffff;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.login-form a{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #000000;
+
+}
+
+.login-form .sign-in{
+    width: 100%;
+    height: 60px;
+    background-color: #ffff;
+    border-radius: 10px;
+    color: black;
+    border: 0px;
+    margin-top: 19px;
+    margin-bottom: 10px;
+}
+
+.login-form span{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    margin-top: 10px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+.login-form span a{
+    font-weight: 600;
+}
+
+.login-right img{
+    height: 100%;
+    width: 100%;
+}
+
+/*=============== Register ===================*/
+
+.registration-form input{
+    background: #ffff;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.registration-form button{
+    border-radius: 10px;
+    color: black;
+}
+
+.registration-form .signup{
+    width: 100%;
+    height: 60px;
+    background-color: #ffff;
+    border-radius: 10px;
+    color: black;
+    border: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.registration-form label{
+    font-style: bold;
+    font-weight: 500;
+    font-size: 15px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.registration-form a{
+    color: black;
+    font-weight: 400;
+}
+
+/*============calculator===============*/
+
+.container-calculator a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container-left label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+    color: #000000;
+    margin-top: 25px;
+}
+
+.container-left button{
+    width: 210px;
+    height: 52px;
+    left: 251px;
+    top: 568px;
+
+    background: #D9D9D9;
+    border-radius: 20px;
+    margin-top: 39px;
+}
+
+.container-left input{
+    border-radius: 1px;
+    border-radius: 10px;
+}
+
+.container-right img{
+    width: auto;
+    height: 250px;
+}
+
+.container-right h2{
+    margin-top: 30px;
+}
+
+.container-right p{
+    margin-top: 10px;
+}
+
+/*============dashboard============*/
+
+.container-isian h1{
+    margin-top: 60px;
+}
+
+.container-isian img{
+    width: 200px;
+    height: auto;
+}
+
+.container .mulai{
+    width: 210px;
+    height: 52px;
+    left: 251px;
+    top: 568px;
+
+    background: #D9D9D9;
+    border-radius: 20px;
+    border: 2px;
+    margin-bottom: 20px;
+
+}
+
+.container-bawah .h3{
+    margin-top: 30px;
+}
+
+.container-bawah menu{
+    margin-top: 20px;
+}
+
+.container-bawah p{
+    margin-top: 10px;
+}
+
+/*===========Profile Card============*/
+
+.ibm{
+    height: 100vh;
+}
+
+.ibm .container-ibm{
+    padding-top: 100px;
+}
+
+.ibm .container-ibm .isian-ibm label{
+    padding-top: 10px;
+}
+
+.ibm .container-ibm input{
+    border-radius: 20px;
+}
+
+.ibm .container-ibm button{
+    width: 30%;
+    margin-top: 15px;
+    border-radius: 10px;
+
+}
+
+.kartu{
+    margin-top: 100px;
+}
+
+.kartu .container-card .tombol-card a{
+    margin-left: 10px;
+    color: #000000;
+}
+
+/*=====================Hello Page=====================*/
+
+.hello_page{
+    height: cover;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(./image/hello_page.jpg);
+    background-size: cover;
+}
+
+.hellopage{
+    padding-top: 200px;
+    padding-bottom: 150px;
+    color: black;
+}
+
+.hellopage p{
+    margin-top: 10px;
+    padding-left: 60px;
+}
+
+.hellopage button{
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+    border: 2px black;
+}
+
+.hellopage .Login_hellopage{
+    margin-top: 10px;
+}
+
+.container_info{
+    padding-top: 50px;
+    padding-bottom: 45px;
+}
+
+.container_info img{
+    padding-bottom: 20px;
+}
+
+.container_asal{
+    background-color: #D9D9D9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container-tengah{
+    background-color: #ffff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.container-tengah .bagian-1 h4{
+    margin-right: 60px;
+}
+
+.bagian-1 button{
+    margin-right: 122px;
+}
+
+.container-tengah button{
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+    border: 2px black;
+}
+
+.container-tengah .bagian-2 h4, button{
+    margin-left: 60px;
+}
+
+.footer{
+    padding-top: 30px;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-bottom: 50px;
+}
+
+.footer button{
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+    border: 2px black;
+}
+
+/*=============video==================*/
+
+.container-pilih{
+    margin-top: 60px;
+}
+
+.container-pilih .card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
