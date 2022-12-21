@@ -9,7 +9,6 @@ const methodOverride = require('method-override')
 require('dotenv').config() // import dotenv
 const  session = require('express-session');
 const { redirect } = require('express/lib/response');
-const { where } = require('sequelize');
 const { use } = require('express/lib/application');
 //set_up overide
 app.use(methodOverride('_method'))
@@ -38,11 +37,19 @@ const cek_login = (req, res, next) => {
 
 app.get("/", async(req, res) => {
 
-    // console.log(req.body.user)
-    res.send("halo")
+    res.render("hellopage",{
+        layout :'layouts/main-layout',
+        title : 'calculator',
+    })
 
 });
 
+app.get("/video2",(req,res)=>{
+    res.render("video2",{
+        layout :'layouts/main-layout',
+        title : 'calculator',
+    })
+})
 
 app.get("/login",async(req, res) => {
    
@@ -85,6 +92,8 @@ app.get("/register",(req,res) => {
     });
     
 });
+
+
  
 
 app.post("/register",[
@@ -101,20 +110,28 @@ app.post("/register",[
             errors : errors.array(),
         });
     }else{
+
         await users.create(req.body);  
         res.redirect("/login");
+
     }
+   
     
-  
 });
 
 
 app.post("/login",async(req,res) => {
-    console.log(req.body)
-    const user = await users.findOne({where: {email: req.body.email}})
 
+    const user = await users.findOne({where: {email: req.body.email}});
+    
     if (!user){
-        res.redirect("/login")
+        res.render("login",
+        {
+            error : "email / password salah",
+            layout :'layouts/main-layout',
+            title : 'calculator',
+        }
+        )
     }else{
         if(user.password !== req.body.password){
             res.redirect("/login")
@@ -130,6 +147,7 @@ app.post("/login",async(req,res) => {
 
 app.get("/tampilan",cek_login,async(req,res)=> {
     let id = req.session.user.id;
+
     let data = await users.findOne({
         attributes:['fullname'],
         include:[{
@@ -139,9 +157,10 @@ app.get("/tampilan",cek_login,async(req,res)=> {
             
         }],
         where:{id:id}
-    })
-    if (!data.beratdetails){
-        res.render('tampilan',{
+    });
+
+    if (!data.beratdetails)
+        return res.render('tampilan',{
             id,
             berat : data.beratdetails,
             nama : data.fullname,
@@ -149,25 +168,26 @@ app.get("/tampilan",cek_login,async(req,res)=> {
             title : 'calculator',
         });
     
-    }else{
-        res.render('tampilan',{
-            id,
-            nama : data.fullname,
-            berat : data.beratdetails.berat,
-            layout :'layouts/main-layout',
-            title : 'calculator',
-        });
-    }
+   
+    res.render('tampilan',{
+        id,
+        nama : data.fullname,
+        berat : data.beratdetails.berat,
+        layout :'layouts/main-layout',
+        title : 'calculator',
+    });
+   
 })
 
 app.get("/masatubuh",cek_login,async(req,res)=> {
    
     res.render('masatubuh',{
+
         layout :'layouts/main-layout',
         title : 'calculator',
     });
 
-})
+});
 
 
 app.post("/calculator",cek_login,async(req,res) => {
@@ -205,7 +225,9 @@ app.delete('/berat', async(req,res)=>{
 app.get("/masatubuh/edit/:id",async(req,res)=>{
 
     const user = await beratusers.findOne({where:{id_users : req.params.id}})
-    
+    if(!user)
+        return res.redirect("/tampilan");
+
     res.render('ibm',{
     
         id : user.id_users,
@@ -217,7 +239,7 @@ app.get("/masatubuh/edit/:id",async(req,res)=>{
 });
 
 app.put('/imb',async(req,res)=> {
-    
+ 
     let berat = req.body.beratbadan;
     let tinggi = req.body.tinggi;
     let tinggibadanjadi = tinggi / 100 ;
@@ -231,6 +253,13 @@ app.put('/imb',async(req,res)=> {
     })
 
     res.redirect("/tampilan")
+
+});
+
+app.delete("/logout",(req,res)=>{
+
+    req.session.destroy();
+    res.redirect("/login");
 
 });
 
