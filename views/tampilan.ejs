@@ -1,15 +1,15 @@
 <div class="container-calculator">
     <nav class="navbar fixed-top navbar-expand-lg bg-light">
       <div class="container">
-          <a class="navbar-brand" href="#">E-Buddy</a>
+          <a href="" class="navbar-brand">E-Buddy</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="/homepage">Dashboard</a>
+              <a class="nav-link active" aria-current="page" href="/home">Dashboard</a>
               <a class="nav-link" href="#">Menu</a>
-              <a class="nav-link" href="/video2">Video</a>
+              <a class="nav-link" href="/video">Video</a>
               <a class="nav-link " href="/masatubuh">Calculator</a>
               <a class="nav-link " href="/tampilan">IMT</a>
             </div>
@@ -18,38 +18,83 @@
             <div class="justify-content-end">
               <a>
               <form method="POST" action="/logout?_method=DELETE" class="d-inline" >
-                 <button>Logout</button>
+                <button type="submit" class="btn btn-danger btn-sm">LOGOUT</button>
               </form>
               </a>
             </div>
           </div>
       </div>
     </nav>
-  </div>
-<section class="card container-fluid">
-  <div class="container-ibm">
-      <div class="row justify-content-center align-items-center">
-          <div class="col-3">
-              <div class="card " style="width: 18rem;">
-                  <div class="card-body">
-                      <h5 class="card-title">Berat Badan</h5>
-                 
-                      <h6 class="card-subtitle mb-2 text-muted"><%= nama %></h6>
-                      <p class="card-text">Index Massa Tubuh : </p>
-                      <% if (!berat) {%>
-                          <p>Belum menambahkan Berat badan</p> 
-                      <%}else{%>
+</div>
+
+<div class="gambar">
+  <div class="kartu container-fluid align-items-center text-center justify-content-center">
+    <div class="container-kartu">
+          <div class="container-dalem align-items-center text-center justify-content-center">
+            <div class="card-body mt-5">
+                <h5 class="card-title">Berat Badan</h5>
+           
+                <h6 class="card-subtitle mt-2 text-muted"></h6>
+                <p>Nama : <%= nama %> </p>
+                <div class="card-text">
+                  <p class="mt-2"> Index Massa Tubuh : </p>
+                  <% if (!berat) {%>
+                      <p>Belum menambahkan Berat badan</p> 
+                  <%}else{%>
+                        <%if (berat < 17){%>
+                           <p class="card-text"><%= berat %></p>
+                            <p> Sangat kurus</p> 
+                        <%}else if(berat > 17.0 && berat <= 18.5){%>
                             <p class="card-text"><%= berat %></p>
-                      <% } %>
-                      <a href="/masatubuh/edit/<%=id%>" class="btn btn-info badge">edit</a>
-                      <form method="POST" action="/berat?_method=DELETE" class="d-inline" >
-                         <input type="hidden" name="id" value="<%= id %>" />
-                          <button type="submit" class="btn-danger badge">Delete</button>
-                      </form>
-                  </div>
+                            <p>Kurus</p> 
+                        <%}else if(berat > 18.5 && berat <= 25.0){%>
+                              <p class="card-text"><%= berat %></p>
+                              <p>Nomal</p> 
+                       <%}else if(berat > 25.0 && berat <= 27.0){%>
+                             <p class="card-text"><%= berat %></p>
+                             <p>Overweight</p> 
+                        <%}else if(berat > 25.0 && berat <= 27.0){%>
+                          <p class="card-text"><%= berat %></p>
+                             <p>Obesitas</p> 
+                        <%}%>
+                  <% } %>
                 </div>
-              
+                <a href="/masatubuh/edit/<%=id%>" class="btn btn-info btn-lg badge mt-3">edit</a>
+                <form method="POST" action="/berat?_method=DELETE" class="d-inline" >
+                   <input type="hidden" name="id" value="<%= id %>">
+                         <button type="submit" class="btn-danger badge btn-sm">Delete</button>
+                </form>
+            </div>
           </div>
+        </div>
+  </div>
+</div>
+
+
+  <div class="footer-menu container-fluid text-end justify-content-center mt-5">
+    <div class="row">
+      <div class="col-5">
+        <h3 class="text-center">E-Buddy</h3>
+        <p>E-buddy merupakan aplikasi yang membantu anda dalam meningkatkan kualitas kehidupan anda dengan
+          menjadikan anda dapat memantau index massa tubuh dan melakukan diet dari video yang sudah di sediakan.
+        </p>
+      </div>
+      <div class="col">
+        <p>Hubungi Kami</p>
+        <div class="hubungi">
+          <p><img src="gambar/telephone-handle-silhouette.png" alt="telephone">
+          : +6229013940</p>
+          <p><img src="gambar/email (1).png" alt="email"> : EBuddy@gmail.com</p>
+        </div>
+      </div>
+      <div class="col">
+        <P>Ikuti Kami</P>
+        <a href="#"><img src="gambar/facebook.png" alt="facebook"></a>
+        <a href="#"><img src="gambar/instagram.png" alt="instagram"></a>
+        <a href="#"><img src="gambar/twitter.png" alt="twitter"></a>
+        <a href="#"><img src="gambar/youtube.png" alt="youtube"></a>
       </div>
     </div>
+    
+    <smalltext class="text-center">Copyright © 2022 E-Buddy. All Rights Reserved.</smalltext>   
   </div>

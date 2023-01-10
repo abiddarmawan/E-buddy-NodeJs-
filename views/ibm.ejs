@@ -1,15 +1,15 @@
 <div class="container-calculator">
   <nav class="navbar fixed-top navbar-expand-lg bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">E-Buddy</a>
+        <a href=""  class="navbar-brand" >E-Buddy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="/homepage">Dashboard</a>
+            <a class="nav-link active" aria-current="page" href="/home">Dashboard</a>
             <a class="nav-link" href="#">Menu</a>
-            <a class="nav-link" href="/video2">Video</a>
+            <a class="nav-link" href="/video">Video</a>
             <a class="nav-link " href="/masatubuh">Calculator</a>
             <a class="nav-link " href="/tampilan">IMT</a>
           </div>
@@ -18,7 +18,7 @@
           <div class="justify-content-end">
             <a>
             <form method="POST" action="/logout?_method=DELETE" class="d-inline" >
-               <button>Logout</button>
+              <button type="submit" class="btn btn-danger btn-sm">LOGOUT</button>
             </form>
             </a>
           </div>
@@ -43,6 +43,17 @@
         <div class="container-ibm">
             <div class="row justify-content-center align-items-center">
                 <div class="col-5">
+                  <% if (typeof errors !== 'undefined'){ %>
+                    <div class="alert alert-danger" role="alert">
+                      <ul>
+                          <%errors.forEach(errors => { %>
+                            <li><%= errors.msg %></li>
+                          <% }) %>
+      
+                      </ul>
+                      
+                    </div>
+                  <% }%>
                     <div class="text-center">
                         <h2>Hallo Selamat datang kembali!</h2>
                         <p>Ayo itung kembali IBM badan kamu, apa kamu sudah mencapai target kamu?</p>
@@ -53,29 +64,52 @@
                         
                         <!--Berat Badan -->
                         <label for="berat">Masukan Berat Badan</label>
-                        <input name = "beratbadan" type="number" min="1" max="1000" class="form-control" id="berat" placeholder="Berat Badan">
+                        <input name = "beratbadan" type="number" min="1" max="1000" step= "any" class="form-control" id="berat" placeholder="Berat Badan">
             
                         <!--tinggi badan -->
                         <label for="tinggi">Masukan Tinggi Badan</label>
-                        <input name="tinggi" type="number" min="1" max="1000" class="form-control" id="tinggi" placeholder="Tinggi Badan">
+                        <input name="tinggi" type="number" min="1" max="1000" step= "any"  class="form-control" id="tinggi" placeholder="Tinggi Badan">
             
                          
             
                         <!--  button Hitung -->
                         <div class="text-center">
-                            <button class="tambah">Tambah</button>
+                          <button type="submit" class="btn btn-info mt-4 ml-2 btn-lg">Hitung</button>
                         </div>
-                        <% if (typeof hasil !== 'undefined' ) { %>  
-                          <div class="alert alert-dark" role="alert">
-                              <% let angka = hasil.toFixed(2)%>
-        
-                              <%= angka %>  
-                          </div>
-                          <%}%>
                     </div>
                   </form>
                 </div>
             </div>
           </div>
         </div>
+    
+      <div class="footer-menu container-fluid text-end justify-content-center mt-5">
+        <div class="row ">
+          <div class="col-5">
+            <h3 class="text-center">E-Buddy</h3>
+            <p>E-buddy merupakan aplikasi yang membantu anda dalam meningkatkan kualitas kehidupan anda dengan
+              menjadikan anda dapat memantau index massa tubuh dan melakukan diet dari video yang sudah di sediakan.
+            </p>
+          </div>
+          <div class="col">
+            <p>Hubungi Kami</p>
+            <div class="hubungi">
+              <p><img src="/gambar/telephone-handle-silhouette.png" alt="telephone">
+              : +6229013940</p>
+              <p><img src="/gambar/email (1).png" alt="email"> : EBuddy@gmail.com</p>
+            </div>
+          </div>
+          <div class="col">
+            <P>Ikuti Kami</P>
+            <a href="#"><img src="/gambar/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="/gambar/instagram.png" alt="instagram"></a>
+            <a href="#"><img src="/gambar/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="/gambar/youtube.png" alt="youtube"></a>
+          </div>
+        </div>
+
+        <smalltext class="text-center">Copyright © 2022 E-Buddy. All Rights Reserved.</smalltext>   
+      </div>
+
+  </section>
 

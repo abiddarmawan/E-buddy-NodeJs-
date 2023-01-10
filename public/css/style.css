@@ -2,6 +2,28 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/*============navbar=============*/
+
+.container-navbar{
+    background-color: antiquewhite;
+}
+
+.container-navbar a{
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+.container-navbar a:hover{
+    color: rgb(96, 147, 242);
+}
+
+.container-navbar a{
+    color: #000000;
+}
+
+/*==============login=============*/
+
 .login{
     height: 100vh;
 
@@ -53,15 +75,23 @@
 
 }
 
+.login-form .container{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
 .login-form .sign-in{
     width: 100%;
     height: 60px;
-    background-color: #ffff;
+    background-color: #efefef;
     border-radius: 10px;
     color: black;
     border: 0px;
-    margin-top: 19px;
-    margin-bottom: 10px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    padding-left: 100px;
+    padding-right: 100px;
+    transition: 0.3s;
 }
 
 .login-form span{
@@ -77,11 +107,22 @@
 }
 .login-form span a{
     font-weight: 600;
+    transition: 0.2s;
 }
 
 .login-right img{
     height: 100%;
     width: 100%;
+}
+
+.login-form .sign-in:hover{
+    color: rgb(96, 147, 242);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.login-form span a:hover{
+    color: rgb(96, 147, 242);
 }
 
 /*=============== Register ===================*/
@@ -93,43 +134,71 @@
     margin-bottom: 5px;
 }
 
-.registration-form button{
-    border-radius: 10px;
-    color: black;
+.registration-form .container{
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .registration-form .signup{
     width: 100%;
     height: 60px;
-    background-color: #ffff;
+    background-color: #efefef;
     border-radius: 10px;
     color: black;
     border: 0px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    padding-left: 100px;
+    padding-right: 100px;
+    transition: 0.3s;
 }
 
-.registration-form label{
-    font-style: bold;
+.registration-form .form label{
+    font-style: normal;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 25px;
+    line-height: 38px;
     /* identical to box height */
+    color: #000000;
+    margin-top: 8px;
+}
+
+.registration-form span{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    margin-top: 10px;
+    margin-left: 47px;
+}
+.registration-form .login{
+    font-weight: 600;
+    transition: 0.2s;
     color: #000000;
 }
 
-.registration-form a{
-    color: black;
-    font-weight: 400;
+.registration-form .signup:hover{
+    color: rgb(96, 147, 242);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.registration-form span a:hover{
+    color: rgb(96, 147, 242);
 }
 
 /*============calculator===============*/
 
-.container-calculator a{
-    margin-left: 10px;
-    margin-right: 10px;
+.container-kalkulator{
+    margin-top: 150px;
+    margin-bottom: 150px;
 }
 
-.container-left label{
+.kiri{
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.bagian-kiri label{
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -139,44 +208,50 @@
     margin-top: 25px;
 }
 
-.container-left button{
-    width: 210px;
-    height: 52px;
-    left: 251px;
-    top: 568px;
-
-    background: #D9D9D9;
-    border-radius: 20px;
-    margin-top: 39px;
+.button-kiri{
+    margin-top: 80px;
 }
 
-.container-left input{
+.button-kiri .hitung{
+    width: 100%;
+    height: 60px;
+    background-color: #efefef;    
+    border-radius: 10px;
+    color: black;
+    border: 0px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    padding-left: 100px;
+    padding-right: 100px;
+    transition: 0.3s;
+}
+
+
+.bagian-kiri input{
     border-radius: 1px;
     border-radius: 10px;
 }
 
-.container-right img{
-    width: auto;
-    height: 250px;
-}
-
-.container-right h2{
+.bagian-kanan h2{
     margin-top: 30px;
 }
 
-.container-right p{
+.bagian-kanan p{
     margin-top: 10px;
 }
 
-/*============dashboard============*/
+.button-kiri .hitung:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(96, 147, 242);
 
-.container-isian h1{
-    margin-top: 60px;
 }
 
-.container-isian img{
-    width: 200px;
+/*============homepage============*/
+
+.container-isian .logo{
+    width: 300px;
     height: auto;
+    margin-top: 80px;
 }
 
 .container .mulai{
@@ -185,10 +260,11 @@
     left: 251px;
     top: 568px;
 
-    background: #D9D9D9;
-    border-radius: 20px;
+    background-color: #efefef;
+    border-radius: 10px;
     border: 2px;
     margin-bottom: 20px;
+    transition: 0.3s;
 
 }
 
@@ -196,15 +272,37 @@
     margin-top: 30px;
 }
 
-.container-bawah menu{
-    margin-top: 20px;
+.container-bawah img{
+    width: 200px;
+    height: auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .container-bawah p{
     margin-top: 10px;
 }
 
-/*===========Profile Card============*/
+.container .mulai:hover{
+    background-color: rgb(252, 191, 78);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.container_berita_dashboard{
+    margin-bottom: 50px;
+}
+.container_berita_dashboard ul{
+    list-style-type: none;
+}
+
+.container_berita_dashboard li{
+    padding-top: 20px;
+}
+
+
+
+/*===========IBM============*/
 
 .ibm{
     height: 100vh;
@@ -212,6 +310,8 @@
 
 .ibm .container-ibm{
     padding-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .ibm .container-ibm .isian-ibm label{
@@ -219,23 +319,69 @@
 }
 
 .ibm .container-ibm input{
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
-.ibm .container-ibm button{
-    width: 30%;
-    margin-top: 15px;
-    border-radius: 10px;
+.container-button{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
 
+.ibm .container-ibm .tambah{
+    width: 100%;
+    height: 60px;
+    background-color: #efefef;
+    border-radius: 10px;
+    color: black;
+    border: 0px;
+    padding-top: 19px;
+    margin-top: 30px;
+    padding-bottom: 19px;
+    padding-left: 100px;
+    padding-right: 100px;
+    transition: 0.3s;
+
+}
+
+.ibm .container-ibm .tambah:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(96, 147, 242);
+}
+
+/*=================profile card================*/
+
+.gambar{
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(/gambar/workout.avif);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center center;
+    padding-top: 40px;
+    padding-bottom: 50px;
 }
 
 .kartu{
-    margin-top: 100px;
+    margin-top: 206px;
+    margin-bottom: 170px;
+
 }
+
+.container-kartu{
+    margin-left: 600px;
+    margin-right: 600px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
 
 .kartu .container-card .tombol-card a{
     margin-left: 10px;
     color: #000000;
+}
+
+.profile button:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(96, 147, 242);
 }
 
 /*=====================Hello Page=====================*/
@@ -255,6 +401,7 @@
 .hellopage p{
     margin-top: 10px;
     padding-left: 60px;
+    margin-right: 100px;
 }
 
 .hellopage button{
@@ -262,15 +409,17 @@
     width: 200px;
     height: 60px;
     border: 2px black;
+    margin-right: 85px;
+    transition: 0.3s;
 }
 
 .hellopage .Login_hellopage{
     margin-top: 10px;
+    background-color: orange;
 }
 
 .container_info{
-    padding-top: 50px;
-    padding-bottom: 45px;
+    padding-bottom: 80px;
 }
 
 .container_info img{
@@ -278,15 +427,13 @@
 }
 
 .container_asal{
-    background-color: #D9D9D9;
+    background-color: #efefef;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
 .container-tengah{
     background-color: #ffff;
-    padding-top: 50px;
-    padding-bottom: 50px;
 }
 
 .container-tengah .bagian-1 h4{
@@ -302,6 +449,14 @@
     width: 200px;
     height: 60px;
     border: 2px black;
+    background-color: #efefef;
+
+    transition: 0.3s;
+}
+
+.container-tengah img{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .container-tengah .bagian-2 h4, button{
@@ -321,6 +476,31 @@
     width: 200px;
     height: 60px;
     border: 2px black;
+    transition: 0.3s;
+
+}
+
+.hello_page .SignUp_hellopage:hover{
+    color: rgb(96, 147, 242);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.hellopage .Login_hellopage:hover{
+    background-color: rgb(252, 191, 78);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.container-tengah button:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(96, 147, 242);
+}
+
+.footer button:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(96, 147, 242);
+
 }
 
 /*=============video==================*/
@@ -331,7 +511,18 @@
 
 .container-pilih .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform .3s;
 }
+.container-pilih h3{
+    margin-top: 20px;
+}
+
+.container-pilih .card:hover{
+    transform: scale(1.07);
+}
+
+
+
 
 /*=================menu===================*/
 
@@ -339,6 +530,34 @@
     padding-top: 100px;
 }
 
+.container-menu h3{ 
+    margin: auto;
+}
 
+.container-menu .card{
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform .4s;
+}
+
+.container-menu .card:hover{
+   transform: scale(1.02); 
+}
+
+/*===================footer================*/
+.footer-menu{
+    margin-top: 20px;
+    padding-top: 40px;
+    padding-left: 20px;
+    background-color: #f8f9fa;
+    padding-bottom: 20px;
+}
+.footer-menu img{
+    height: 30px;
+}
+
+.footer-menu .hubungi img{
+    height: 20px;
+}
 
 

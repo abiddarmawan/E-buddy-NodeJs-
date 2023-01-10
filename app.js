@@ -10,6 +10,7 @@ require('dotenv').config() // import dotenv
 const  session = require('express-session');
 const { redirect } = require('express/lib/response');
 const { use } = require('express/lib/application');
+const req = require('express/lib/request');
 //set_up overide
 app.use(methodOverride('_method'))
 //gunakan ejs
@@ -23,8 +24,7 @@ app.use(express.urlencoded({extended:false})) // parsing
 app.use(session({
     secret: process.env.SECRET, //penanda heshing
     resave: false, 
-    saveUninitialized: false, 
-   
+    saveUninitialized: false,   
 }))
 
 
@@ -39,15 +39,23 @@ app.get("/", async(req, res) => {
 
     res.render("hellopage",{
         layout :'layouts/main-layout',
-        title : 'calculator',
+        title : 'Hellopage',
     })
 
 });
 
-app.get("/video2",(req,res)=>{
+app.get("/menu",cek_login,(req,res)=>{
+
+    res.render("menu",{
+        layout :'layouts/main-layout',
+        title : 'Menu',
+    })
+})
+
+app.get("/video",cek_login,(req,res)=>{
     res.render("video2",{
         layout :'layouts/main-layout',
-        title : 'calculator',
+        title : 'Video',
     })
 })
 
@@ -55,21 +63,12 @@ app.get("/login",async(req, res) => {
    
     res.render('login',{
         layout :'layouts/main-layout',
-        title : 'calculator',
+        title :'Login',
     });
 
 });
 
-app.get("/homepage",cek_login,(req,res)=>{
-    let name = req.session.user.name;
 
-    res.render("homepage",{
-        title : 'home',
-        layout: 'layouts/main-layout',
-        name
-
-    });
-})
 
 app.get("/home",cek_login,async(req, res) => {
     
@@ -88,35 +87,30 @@ app.get("/register",(req,res) => {
 
     res.render("register",{
         layout:'layouts/main-layout',
-        title : 'calculator',
+        title : 'Register',
     });
     
 });
 
 
- 
-
 app.post("/register",[
     check('email',"Email tidak valid").isEmail(),
-    check('password',"Password tidak valid").isLength({min : 8}),
-
+    check('password',"Password tidak valid ,min 8 character").isLength({min : 8}),
+    check('fullname',"Nama Lengkap Tidak Boleh Kosong").notEmpty(),
     ],async(req,res) => {
     const errors = validationResult(req);
-    console.log(errors);
-    if(!errors.isEmpty()) {
-        res.render('register',{
+   
+    if(!errors.isEmpty()) 
+        return res.render('register',{
             layout:'layouts/main-layout',
             title : 'calculator',
             errors : errors.array(),
         });
-    }else{
-
-        await users.create(req.body);  
-        res.redirect("/login");
-
-    }
-   
+    // if(!res.body.nama)
+    //     errors.msg 
     
+    await users.create(req.body); 
+    res.redirect("/login")   
 });
 
 
@@ -127,14 +121,18 @@ app.post("/login",async(req,res) => {
     if (!user){
         res.render("login",
         {
-            error : "email / password salah",
+            error : 'Email or Password salah',
             layout :'layouts/main-layout',
-            title : 'calculator',
+            title : 'Login',
         }
         )
     }else{
         if(user.password !== req.body.password){
-            res.redirect("/login")
+            res.render("login",{
+                error : 'Email or Password salah',
+                layout :'layouts/main-layout',
+                title : 'Login',
+            })
         }else{
 
             let session = req.session;
@@ -165,7 +163,7 @@ app.get("/tampilan",cek_login,async(req,res)=> {
             berat : data.beratdetails,
             nama : data.fullname,
             layout :'layouts/main-layout',
-            title : 'calculator',
+            title : 'Tampilan',
         });
     
    
@@ -174,7 +172,7 @@ app.get("/tampilan",cek_login,async(req,res)=> {
         nama : data.fullname,
         berat : data.beratdetails.berat,
         layout :'layouts/main-layout',
-        title : 'calculator',
+        title : 'Tampilan',
     });
    
 })
@@ -190,10 +188,21 @@ app.get("/masatubuh",cek_login,async(req,res)=> {
 });
 
 
-app.post("/calculator",cek_login,async(req,res) => {
+app.post("/calculator",cek_login,[
+    check("beratbadan","Berat Badan Tidak Boleh Kosong").notEmpty(),
+    check("tinggi","Tinggi Badan Tidak Boleh kosong").notEmpty(),
+    ],async(req,res) => {
+    
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()) 
+        return res.render('masatubuh',{
+            layout:'layouts/main-layout',
+            title : 'calculator',
+            errors : errors.array(),
+        });
 
     let id = req.session.user.id;
-    
     let berat = req.body.beratbadan;
     let tinggi = req.body.tinggi;
     let tinggibadanjadi = tinggi / 100 ;
@@ -204,13 +213,11 @@ app.post("/calculator",cek_login,async(req,res) => {
         id_users : id,
         berat : hasil
     }
-    
     await beratusers.create(imb); 
     res.redirect("/tampilan")
        
     
 })
-
 
 
 app.delete('/berat', async(req,res)=>{
@@ -222,14 +229,19 @@ app.delete('/berat', async(req,res)=>{
     res.redirect("/tampilan")
 })
 
+app.get("/ibm",(req,res)=>{
+    
+    res.render("ibm",{
+        layout :'layouts/main-layout',
+        title : 'pembaruan',
+    })
+})
 app.get("/masatubuh/edit/:id",async(req,res)=>{
-
     const user = await beratusers.findOne({where:{id_users : req.params.id}})
     if(!user)
-        return res.redirect("/tampilan");
+        return res.redirect("/tampilan")
 
-    res.render('ibm',{
-    
+    res.render('ibm',{    
         id : user.id_users,
         layout :'layouts/main-layout',
         title : 'pembaruan',
@@ -238,10 +250,28 @@ app.get("/masatubuh/edit/:id",async(req,res)=>{
 
 });
 
-app.put('/imb',async(req,res)=> {
- 
+
+
+
+app.put('/imb',[
+    check("beratbadan","Berat Badan Tidak Boleh Kosong").notEmpty(),
+    check("tinggi","Tinggi Badan Tidak Boleh kosong").notEmpty(),
+    ],async(req,res)=> {
+
+    const errors = validationResult(req);
+    let id  = req.session.user.id;
+    if(!errors.isEmpty()) 
+        return res.render('ibm',{
+            layout:'layouts/main-layout',
+            title : 'calculator',
+            errors : errors.array(),
+            id
+        });
+
     let berat = req.body.beratbadan;
     let tinggi = req.body.tinggi;
+    
+    
     let tinggibadanjadi = tinggi / 100 ;
     let a = berat / (tinggibadanjadi * tinggibadanjadi) ;
     let b = parseFloat(a)
@@ -259,11 +289,15 @@ app.put('/imb',async(req,res)=> {
 app.delete("/logout",(req,res)=>{
 
     req.session.destroy();
-    res.redirect("/login");
+    res.redirect("/");
 
 });
 
+app.use((req, res)=>{
 
+    res.send("404 not found")
+
+});
 app.listen(port, () => {
 
     console.log(`PORT JALAN ${port}`);
