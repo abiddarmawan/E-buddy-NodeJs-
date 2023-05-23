@@ -6,6 +6,25 @@
               <h1>Welcome Back</h1>
               <p>Selamat datang jangan lupa isi data ya!</p>
             </div>
+            <% if (success_msg.length > 0) { %>
+              <div class="alert alert-success" role="alert">
+                <ul>
+                  <%= success_msg %>
+                </ul>
+              </div>
+            <% } %>
+            <% if (typeof errors !== 'undefined'){ %>
+              <div class="alert alert-danger" role="alert">
+                <ul>
+                    <%errors.forEach(errors => { %>
+                      <li><%= errors.msg %></li>
+                    <% }) %>
+
+                </ul>
+                
+              </div>
+            <% } %> 
+
             <% if (typeof error !== 'undefined'){ %>
               <div class="alert alert-danger" role="alert">
                 <ul>

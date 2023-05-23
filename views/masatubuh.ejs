@@ -30,6 +30,7 @@
       <div class="kiri">
         <div class="row justify-content-center">
           <div class="col mt-5">
+
             <% if (typeof errors !== 'undefined'){ %>
               <div class="alert alert-danger" role="alert">
                 <ul>
@@ -41,6 +42,13 @@
                 
               </div>
             <% } %> 
+            <% if (gagal.length > 0) { %>
+              <div class="alert alert-danger" role="alert">
+                <ul>
+                  <%= gagal %>
+                </ul>
+              </div>
+            <% } %>
             <form method="POST" action="/calculator">
               <div class="bagian-kiri mt-5">
                   <!--Berat Badan -->

@@ -32,6 +32,14 @@
     <div class="container-kartu">
           <div class="container-dalem align-items-center text-center justify-content-center">
             <div class="card-body mt-5">
+              
+              <% if (success_msg.length > 0) { %>
+                <div class="alert alert-success" role="alert">
+                  <ul>
+                    <%= success_msg %>
+                  </ul>
+                </div>
+              <% } %>
                 <h5 class="card-title">Berat Badan</h5>
            
                 <h6 class="card-subtitle mt-2 text-muted"></h6>
